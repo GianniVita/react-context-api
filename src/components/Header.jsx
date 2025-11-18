@@ -39,7 +39,6 @@ export default function Header() {
         <header>
             <nav className="navbar navbar-expand-md navbar-light bg-light">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to="/">Routing</Link>
                     <button
                         className="navbar-toggler d-lg-none"
                         type="button"
@@ -71,4 +70,4 @@ export default function Header() {
             </nav>
         </header>
     )
-}                            
+}
