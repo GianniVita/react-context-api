@@ -31,9 +31,7 @@ const menu = [
 ];
 
 export default function Navbar() {
-    const {budgetMode, setBudgetMode} = useContext (BudgetContext)
-
-
+    const { budgetMode, setBudgetMode } = useContext(BudgetContext);
 
     return (
         <nav className="navbar navbar-expand-md navbar-light bg-light">
@@ -60,11 +58,15 @@ export default function Navbar() {
                             ))
                         }
                     </ul>
-                    <button onClick={() => {
-                        setBudgetMode(!budgetMode)
-                        console.log(budgetMode)
-                    }} > Budget: {budgetMode ? "ON" : "OFF"}</button>
-
+                    <button
+                        className={`btn ${budgetMode ? "btn-success" : "btn-outline-secondary"} ms-2`}
+                        onClick={() => {
+                            setBudgetMode(!budgetMode);
+                            console.log(budgetMode);
+                        }}
+                    >
+                        Budget: {budgetMode ? "ON" : "OFF"}
+                    </button>
                 </div>
             </div>
         </nav>
