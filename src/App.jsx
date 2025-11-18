@@ -10,7 +10,8 @@ import DetailPage from './pages/DetailPage'
 import NotFoundPage from './pages/404Page'
 import AdminLoginPage from './pages/AdminLoginPage'
 import DefaultError from './layouts/DefaultError'
-
+import BudgetContext from './context/BudgetContext'
+BudgetContext
 
 /* Routes list:
 - / HomePage
@@ -24,6 +25,8 @@ function App() {
 
   return (
     <>
+    <BudgetContext.Provider value={{}}>
+
       <BrowserRouter>
         <Routes>
 
@@ -51,10 +54,11 @@ function App() {
 
 
 
-
-
         </Routes>
       </BrowserRouter>
+
+    </BudgetContext.Provider>
+
 
     </>
   )
