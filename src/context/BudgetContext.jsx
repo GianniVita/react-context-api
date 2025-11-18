@@ -4,5 +4,3 @@ const BudgetContext = createContext();
 
 
 export default BudgetContext;
-
-

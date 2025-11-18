@@ -1,8 +1,14 @@
-import { Link } from "react-router-dom";
+import { data, Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import BudgetContext from "../context/BudgetContext";
+import { useContext } from "react";
 
 export default function ProductPage() {
+    const { budgetMode, setBudgetMode } = useContext(BudgetContext)
+    let dataOriginali = [];
+
+
     // console.log("ProductPage")
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(null);
@@ -11,6 +17,7 @@ export default function ProductPage() {
         axios.get('https://fakestoreapi.com/products')
             .then(response => {
                 //  console.log(response)
+                dataOriginali= response.data
                 setProducts(response.data);
                 setError(null);
             })
@@ -21,6 +28,28 @@ export default function ProductPage() {
             });
 
     }, []);
+
+    useEffect(() =>{ 
+        if (budgetMode) {
+
+            
+            // se vero filtra
+           const gigi = products.filter((product) =>{
+                    
+                return product.price <= 30
+
+            } )
+
+            setProducts (gigi)
+
+        }else{
+            
+            setProducts(dataOriginali)
+           //  Non filtrare i dati
+         }
+
+
+    }, [budgetMode]);
 
     return (
         <div className="container mt-5">

@@ -1,3 +1,5 @@
+
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import DefaultLayout from './layouts/DefaultLayout'
 import HomePage from './pages/HomePage'
@@ -11,7 +13,8 @@ import NotFoundPage from './pages/404Page'
 import AdminLoginPage from './pages/AdminLoginPage'
 import DefaultError from './layouts/DefaultError'
 import BudgetContext from './context/BudgetContext'
-BudgetContext
+import { useState } from 'react'
+
 
 /* Routes list:
 - / HomePage
@@ -23,9 +26,13 @@ BudgetContext
 
 function App() {
 
+const [budgetMode, setBudgetMode] = useState(false)
+
+
+
   return (
     <>
-    <BudgetContext.Provider value={{}}>
+    <BudgetContext.Provider value={{budgetMode, setBudgetMode}}>
 
       <BrowserRouter>
         <Routes>
